@@ -1,0 +1,92 @@
+﻿<Window x:Class="WpfHomeWork9.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfHomeWork9"
+        mc:Ignorable="d"
+        Title="Turbo Text Editor 2022" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
+    <Window.CommandBindings>
+        <CommandBinding Command="Open" Executed="OpenExecuted"/>
+        <CommandBinding Command="Save" Executed="SaveExecuted"/>
+        <CommandBinding Command="Close" Executed="CloseExecuted"/>
+        <CommandBinding Command="Help" Executed="HelpExecuted"/>
+        <CommandBinding Command="local:MyCommands.Bold" Executed="BoldExecuted"/>
+        <CommandBinding Command="local:MyCommands.Italic" Executed="ItalicExecuted"/>
+        <CommandBinding Command="local:MyCommands.Underline" Executed="UnderlineExecuted"/>
+        <CommandBinding Command="local:MyCommands.Left" Executed="LeftExecuted"/>
+        <CommandBinding Command="local:MyCommands.Center" Executed="CenterExecuted"/>
+        <CommandBinding Command="local:MyCommands.Right" Executed="RightExecuted"/>
+        <CommandBinding Command="local:MyCommands.Justify" Executed="JustifyExecuted"/>  
+        <CommandBinding Command="local:MyCommands.Black" Executed="BlackExecuted"/>
+        <CommandBinding Command="local:MyCommands.Red" Executed="RedExecuted"/>
+        <CommandBinding Command="local:MyCommands.Light" Executed="LightExecuted"/>
+        <CommandBinding Command="local:MyCommands.Dark" Executed="DarkExecuted"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu Style="{DynamicResource MenuStyle}">
+            <MenuItem Header="_Файл">
+                <MenuItem Header="_Открыть" Command="Open"/>
+                <MenuItem Header="_Сохранить" Command="Save"/>
+                <Separator/>
+                <MenuItem Header="_Выход" Command="Close"/>
+            </MenuItem>
+            <MenuItem Header="_Вид">
+                <MenuItem Header="_Цветовая схема">
+                    <MenuItem Header="_Светлая" IsChecked="True" IsCheckable="True" x:Name="menuItemLight" Command="local:MyCommands.Light"/>
+                    <MenuItem Header="_Тёмная" IsCheckable="True" x:Name="menuItemDark" Command="local:MyCommands.Dark"/>
+                </MenuItem>                
+            </MenuItem>
+            <MenuItem Header="_Справка" Command="Help"/>
+        </Menu>
+        <ToolBarTray Grid.Row="1" Style="{DynamicResource ToolBarTrayStyle}">
+            <ToolBar Style="{DynamicResource ToolBarStyle}">
+                <ComboBox SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{StaticResource fontName}" Style="{DynamicResource ComboBoxStyle}"/>
+                <ComboBox SelectedIndex="0" Width="50" SelectionChanged="ComboBox_SelectionChanged_1" ItemsSource="{StaticResource fontSize}" Style="{DynamicResource ComboBoxStyle}"/>
+            </ToolBar>
+            <ToolBar Style="{DynamicResource ToolBarStyle}">
+                <Button Width="32" Height="32" Command="local:MyCommands.Bold">
+                    <Image Source="icons\text_bold.png"/>
+                </Button>
+                <Separator/>
+                <Button Width="32" Height="32" Command="local:MyCommands.Italic">
+                    <Image Source="icons\text_italic.png"/>
+                </Button>
+                <Separator/>
+                <Button Width="32" Height="32" Command="local:MyCommands.Underline">
+                    <Image Source="icons\text_underline.png"/>
+                </Button>
+            </ToolBar>
+            <ToolBar Style="{DynamicResource ToolBarStyle}">
+                <Button Width="32" Height="32" Command="local:MyCommands.Left">
+                    <Image Source="icons\text_left.png"/>
+                </Button>
+                <Separator/>
+                <Button Width="32" Height="32" Command="local:MyCommands.Center">
+                    <Image Source="icons\text_center.png"/>
+                </Button>
+                <Separator/>
+                <Button Width="32" Height="32" Command="local:MyCommands.Right">
+                    <Image Source="icons\text_right.png"/>
+                </Button>
+                <Separator/>
+                <Button Width="32" Height="32" Command="local:MyCommands.Justify">
+                    <Image Source="icons\text_justify.png"/>
+                </Button>
+            </ToolBar>
+            <ToolBar Style="{DynamicResource ToolBarStyle}">
+                <StackPanel VerticalAlignment="Center">
+                    <RadioButton Content="Черный" IsChecked="True" Cursor="Hand" Command="local:MyCommands.Black"/>
+                    <RadioButton Content="Красный" Cursor="Hand" Command="local:MyCommands.Red"/>
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        <TextBox x:Name="textBox" Grid.Row="2" FontSize="16" FontFamily="Arial" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="ru-ru" VerticalScrollBarVisibility="Auto" Style="{DynamicResource TextBoxStyle}"> 
+        </TextBox>
+    </Grid>
+</Window>
