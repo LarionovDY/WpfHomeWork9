@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="WindowStyle">
         <Setter Property="Control.Background" Value="DimGray"/>
-        <Setter Property="Control.Foreground" Value="Brown"/>
+        <Setter Property="Control.Foreground" Value="Black"/>
     </Style>
     <Style x:Key="ToolBarTrayStyle" BasedOn="{StaticResource WindowStyle}"/>
     <Style x:Key="MenuStyle" BasedOn="{StaticResource WindowStyle}">
@@ -15,7 +15,7 @@
         <Setter Property="Control.Margin" Value="3"/>
         <Setter Property="Control.Padding" Value="3"/>
         <Setter Property="Control.Background" Value="DarkGray"/>
-        <Setter Property="Control.Foreground" Value="Brown"/>
+        <Setter Property="Control.Foreground" Value="Black"/>
         <Setter Property="Control.Cursor" Value="Hand"/>
     </Style>
     <Style x:Key="TextBoxStyle" BasedOn="{StaticResource ComboBoxStyle}">
