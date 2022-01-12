@@ -24,7 +24,7 @@ namespace WpfHomeWork9
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
             menuItemLight.IsChecked = true;
             menuItemDark.IsChecked = false;
             Uri uri = new Uri("Light.xaml", UriKind.Relative);
@@ -157,7 +157,7 @@ namespace WpfHomeWork9
                 textBox.TextAlignment = TextAlignment.Justify;
         }
 
-        private void LightExecuted(object sender, ExecutedRoutedEventArgs e)
+        private void LightExecuted(object sender, ExecutedRoutedEventArgs e)        //обработчик выбора в меню светлой темы
         {
 
             menuItemLight.IsChecked = true;
@@ -169,7 +169,7 @@ namespace WpfHomeWork9
 
         }
 
-        private void DarkExecuted(object sender, ExecutedRoutedEventArgs e)
+        private void DarkExecuted(object sender, ExecutedRoutedEventArgs e)        //обработчик выбора в меню тёмной темы
         {
             menuItemDark.IsChecked = true;
             menuItemLight.IsChecked = false;
