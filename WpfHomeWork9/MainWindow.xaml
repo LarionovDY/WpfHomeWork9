@@ -46,8 +46,8 @@
         </Menu>
         <ToolBarTray Grid.Row="1" Style="{DynamicResource ToolBarTrayStyle}">
             <ToolBar Style="{DynamicResource ToolBarStyle}">
-                <ComboBox SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{StaticResource fontName}" Style="{DynamicResource ComboBoxStyle}"/>
-                <ComboBox SelectedIndex="0" Width="50" SelectionChanged="ComboBox_SelectionChanged_1" ItemsSource="{StaticResource fontSize}" Style="{DynamicResource ComboBoxStyle}"/>
+                <ComboBox x:Name="selectFontName" SelectedIndex="0" Width="200" ItemsSource="{StaticResource fontName}" Style="{DynamicResource ComboBoxStyle}"/>
+                <ComboBox x:Name="selectFontSize" SelectedIndex="0" Width="50" ItemsSource="{StaticResource fontSize}" Style="{DynamicResource ComboBoxStyle}"/>
             </ToolBar>
             <ToolBar Style="{DynamicResource ToolBarStyle}">
                 <Button Width="32" Height="32" Command="local:MyCommands.Bold">
@@ -86,7 +86,10 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="textBox" Grid.Row="2" FontSize="16" FontFamily="Arial" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="ru-ru" VerticalScrollBarVisibility="Auto" Style="{DynamicResource TextBoxStyle}"> 
+        <TextBox x:Name="textBox" Grid.Row="2" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="ru-ru" VerticalScrollBarVisibility="Auto"
+                 FontSize="{Binding ElementName=selectFontSize, Path=SelectedItem}" 
+                 FontFamily="{Binding ElementName=selectFontName, Path=SelectedItem}"
+                 Style="{DynamicResource TextBoxStyle}"> 
         </TextBox>
     </Grid>
 </Window>
