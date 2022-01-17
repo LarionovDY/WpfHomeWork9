@@ -119,20 +119,6 @@ namespace WpfHomeWork9
             }
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)      //обработчик события SelectionChanged на ComboBox
-        {
-            string fontName = (sender as ComboBox).SelectedItem as string;
-            if (textBox != null)
-                textBox.FontFamily = new FontFamily(fontName);
-        }
-
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)        //обработчик события SelectionChanged на ComboBox
-        {
-            int fontSize = Convert.ToInt32((sender as ComboBox).SelectedItem as string);
-            if (textBox != null)
-                textBox.FontSize = fontSize;
-        }
-
         private void LeftExecuted(object sender, ExecutedRoutedEventArgs e)        //обработчик команды Left
         {
             if (textBox != null)
